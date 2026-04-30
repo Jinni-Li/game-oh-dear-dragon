@@ -58,9 +58,6 @@ The story begins as an all too familiar fantasy trope - rescue the princess from
 
 # 3. Requirements 
 
-- 15% ~750 words
-- Early stages design. Ideation process. How did you decide as a team what to develop? Use case diagrams, user stories.
-
 ## 3.1 Ideation
 During the ideation process, team members took turns proposing their ideas. Our initial list contained several concepts, but three quickly became the frontrunners: a tactical stealth game inspired by Invisible Inc. and The WereCleaner, a rogue-like, and a Bomberman clone. The team spent a great deal of time debating on the merits of each idea, considering factors such as difficulty of implementation, originality, player enjoyment, and how excited we were about the concept as developers.
 
@@ -152,9 +149,6 @@ The Player has three entry points into the system: starting a new game, viewing 
 | Playthrough Variation        | FOYER (easy) has a simple layout with few guards, large open spaces, and a direct path to the exit. LIBRARY (medium) has multiple connections between rooms, reduced room size, and more guards. SALON (hard) has the most complex layout and the greatest number of rooms, and a large number of guards patrolling confined spaces.    | 
 
 # 4. Design
-
-- 15% ~750 words 
-- System architecture. Class diagrams, behavioural diagrams.
 
 ## 4.1 System Architecture
 
@@ -840,10 +834,6 @@ PATROL can also be interrupted directly into SEARCH in 3 different ways. Players
 
 # 5. Implementation
 
-- 15% ~750 words
-
-- Describe implementation of your game, in particular highlighting the TWO areas of *technical challenge* in developing your game.
-
 During the development process, the guard AI's movement and decision making and the map rendering system stood out as the greatest technical challenges. The development and implementation of each system is described in further detail below.
 
 ## 5.1 Challenge 1: NPC Pursuit AI
@@ -859,8 +849,6 @@ Key to developing the kind of game we wanted was to build an NPC movement system
   <img src="devlog/images/npccard.GIF" alt="NPC searching" width="640">
 </p>
 <p align="center"><i>Early iteration of NPC pathfinding AI</i></p>
-
-
 
 The guard's decision making has to plan paths in real time. In PATROL and SEARCH (see _Figure 5_), it must find fast, believable routes from any point on the map back to a known waypoint. In CHASE, it must react within a handful of frames as the player changes direction. After reviewing several tracking approaches, we chose **A\* pathfinding** as our global planner because it is a well-established algorithm for shortest-path search on graphs. To make the movement more natural in dynamic environments, we added an intelligent waypoint-skipping mechanism which scans the path backwards from the end and jumps directly to the furthest waypoint an NPC can reach.
 
@@ -1040,10 +1028,6 @@ In total, **78 test cases** were executed and **78 passed**. These results suppo
 
 # 7. Process 
 
-- 15% ~750 words
-
-- Teamwork. How did you work together, what tools and methods did you use? Did you define team roles? Reflection on how you worked together. Be honest, we want to hear about what didn't work as well as what did work, and importantly how your team adapted throughout the project.
-
 ## 7.1 Team Roles
 
 Our team divided responsibilities early on based on each member's prior interests and experience. The full breakdown is shown in _Table 1_ above. Defining roles early gave us a starting point and reduced confusion over ownership. In practice, responsibilities still overlapped so our workflow was more collaborative than the role list suggests.
@@ -1084,7 +1068,7 @@ After speaking with our instructors, we moved development and all of our documen
 
 We now acknowledge that it would have been easier to start that way, but experiencing the problems first-hand gave everyone an understanding of why git-based workflows exist. That lesson is likely to stay with us more clearly than if we had followed the correct process from day one.
 
-<p align="center">Weekly Progress</p>
+
 
 | Week       | Description                                                                                                                                                                                                                 |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1100,6 +1084,7 @@ We now acknowledge that it would have been easier to start that way, but experie
 | Week 10–12 | Progress slowed due to spring break and celebration week, but work still continued on screen creation, endings development, portal implementation, animation, and report support.                                           |
 | Week 13    | The team focused on final feature completion, including the notes feature, on-screen notifications, tutorial creation, testing completion, bug fixing, and music and sound effects.                                         |
 | Week 14    | Final work centred on report writing, remaining fixes and improvements, video production, and overall project wrap-up.                                                                                                      |
+<p align="center">Weekly Progress</p>
 
 ## 7.6 Reflection
 
@@ -1119,10 +1104,6 @@ At the same time, we recognise several weaknesses in how we worked:
 These issues did not prevent us from completing the project, but they made parts of the process less efficient than they should have been. The most important outcome is that we adapted as the project progressed and now have a clearer understanding of how we would organise a similar project in future. In particular, we would establish a repository-centred workflow earlier, keep sprint structures simpler and more realistic, and maintain the strong communication habits that worked well for us throughout. 
 
 # 8. Sustainability, Ethics, and Accessibility
-
-- 10%, ~750 words
-
-- Evidence of the impact of your game across the environment + 2 of the following: social, economic, technical, individual
 
 ## 8.1 Sustainability Awareness Framework (SusAF)
 
@@ -1192,10 +1173,6 @@ Several green software patterns are present throughout this project, and we also
 
 # 9. Conclusion
 
-- 10% ~500 words
-
-- Reflect on the project as a whole. Lessons learnt. Reflect on challenges. Future work, describe both immediate next steps for your current game and also what you would potentially do if you had chance to develop a sequel.
-
 ## 9.1 Reflection
 
 Building **Escape: Oh Dear Dragon!** gave our team our first experience of taking a concept and turning it into a playable game, along with a solid idea of what software engineering in a team looks like. We accomplished what we set out to do and created a 2D stealth game with a neon-cyberpunk aesthetic, responsive guard AI, and a story twist that subverts the established "rescue the princess" trope. As a team, we think the game is enjoyable to play and tells a fun, short story, and of that we are proud.
@@ -1246,8 +1223,6 @@ Ultimately, we appreciate the opportunity to collaborate as a team, learn from e
 
 # 11. AI Statement
 
-- Summarize your team's use of AI so we know where to give you credit for work done.
-
 AI was used throughout the project primarily as a support tool for development and collaboration. During planning, we used AI to help brainstorm ideas, compare architectural approaches, and prototype before deciding which options best fit our vision of the game. When drafting our epics and user stories, AI was used to review and provide feedback to reduce repetition and improve clarity. 
 
 AI was also used during implementation as a debugging tool to help identify possible causes of errors and suggest fixes, in addition to reviewing code structure. One of the greatest uses of AI was in supporting team communication by translating documents between team members. This allowed each member to write in a language that was familiar and comfortable, helping to speed up communication when compared to writing in a non-native language.
@@ -1260,16 +1235,6 @@ AI also played a role in the developing assets. We used tools including GPT-5.4,
 <p align="center"><i>A sample prompt for generating assets</i></p>
 
 All AI outputs were reviewed by our team. Suggestions, generated visuals, and rewritten text were assessed for quality and fit with our project’s goals. By using AI this way, it functioned as a productivity tool and final judgment remained with the team.
-
-### Additional Marks
-
-You can delete this section in your own repo, it's just here for information. in addition to the marks above, we will be marking you on the following two points:
-
-- **Quality** of report writing, presentation, use of figures and visual material (5% of report grade) 
-  - Please write in a clear concise manner suitable for an interested layperson. Write as if this repo was publicly available.
-- **Documentation** of code (5% of report grade)
-  - Organise your code so that it could easily be picked up by another team in the future and developed further.
-  - Is your repo clearly organised? Is code well commented throughout?
 
 # References
 
