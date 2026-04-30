@@ -47,6 +47,8 @@ The story begins as an all too familiar fantasy trope - rescue the princess from
   <img src="devlog/images/group-pic.jpeg" alt="Group pic" width="900" height="800">
 </div>
 
+<p align="center"><b><em>Table 2.1: Development Team and Roles</em></b></p>
+
 | Person        | Email                 | GitHub                 | Roles                                                      |
 | ------------- | --------------------- | ---------------------- | ---------------------------------------------------------- |
 | Yan Cui       | sk25619@bristol.ac.uk | @Tracy-fuyao           | Lead Developer, Architecture and Integration               |
@@ -76,7 +78,7 @@ Due to the semester-long nature of the course, the difficulty and time it would 
 For the stealth game, we prototyped navigating around rooms, enemy field of view and alert bars, and collecting keys to advance further through the level. 
 
 https://github.com/user-attachments/assets/9940a5db-5fca-4c4e-b8e4-658c5386039b
-<p align="center"><i>Video 1: Paper Prototype - Stealth Game</i></p>
+<p align="center"><i>Video 3.1: Paper Prototype - Stealth Game</i></p>
 
 For the Bomberman idea, we prototyped map layout, power-ups, enemy behavior, and dropping bombs to destroy blocks and damage enemies, along with portal mechanics from the Portal game. Ultimately, we voted and decided that we would create the stealth game combined with portal mechanics as the twist, allowing the player additional mechanics for avoiding enemies and navigating levels. 
 
@@ -92,7 +94,7 @@ The following figure shows our Stakeholder Onion Model, with layers indicated in
 <p align="center">
     <img width="640" src="devlog/images/onion_model.png" alt="Onion Model">    
 </p>
-<p align="center"><i>Figure 1: Stakeholder Onion Model</i></p>
+<p align="center"><i>Figure 3.1: Stakeholder Onion Model</i></p>
 
 The System ring captures direct users of the game (players/playtesters). The Containing System includes those who create, support, and evaluate the product (development team and teaching staff). The Wider Environment captures university-level constraints and infrastructure. Stakeholders here are represented as roles, though the same individuals may serve as lecturers/TAs and also act as assessors.
 
@@ -114,6 +116,8 @@ Below are the user stories for our first epic, Stealth and Movement. Please see 
 
 **Epic 1: Stealth and Movement**
 
+<p align="center"><b><em>Table 2.1: User Stories for Epic 1</em></b></p>
+
 | Number        | User Story               | Priority                  | 
 | ------------- | ------------------------ | ------------------------- | 
 | U1.1          | As a player, I want responsive movement so I can position precisely to avoid enemy vision and alert zones.    | High            |
@@ -130,9 +134,11 @@ Below are the user stories for our first epic, Stealth and Movement. Please see 
 To consolidate our user stories into a player-facing view of the system and scope the behavior we planned to implement, we created the use case diagram shown below. 
 
 <img src="devlog/images/use_case_diagram.svg" alt="Use case diagram">
-<p align="center"><i>Figure 2: Use Case Diagram</i></p>
+<p align="center"><i>Figure 3.2: Use Case Diagram</i></p>
 
 The Player has three entry points into the system: starting a new game, viewing the tutorial, or playing a level. Starting a new game _includes_ selecting a playthrough and a difficulty as both are required to load a level. Playing a level _includes_ navigating the map, avoiding detection, collecting items in chests, and reaching the exit. These four are part of the core loop and can't be opted out of. Sprinting, using portals, or pausing the game are modelled as _extends_ relationships because they are optional, as the player can theoretically complete a level only by walking and using the base controls. Pausing the game _extends_ itself further into viewing collected story notes or exiting to the title screen. The full use case specification for the Play Level use case is given below.
+
+<p align="center"><b><em>Table 3.2: Use Case Specification for Play Level</em></b></p>
 
 | Field         | Specification            | 
 | ------------- | ------------------------ | 
@@ -652,7 +658,7 @@ classDiagram
     FalseEndingScreen *-- CutscenePlaybackController : owns
     TrueEndingScreen *-- CutscenePlaybackController : owns
 ```
-<p align="center"><i>Figure 3: Class Diagram</i></p>
+<p align="center"><i>Figure 4.1: Class Diagram</i></p>
 
 The class diagram above shows the structure of the codebase. Composition is used throughout our project to allow us to build complex behavior from several smaller pieces. For example, GameCore owns its subsystems, Level owns its systems, and ScreenManager owns its screens. This approach gives use clear object lifetimes and makes each subsystem independently testable. With a composition approach, we are able to use GameState as a container that holds the current Level, so swapping levels requires reassignment rather than tearing the world down completely. The screens and the gameplay would are also fully decoupled, which lets us add new screens, like multiple endings, without touching the gameplay loop.
 
@@ -783,7 +789,7 @@ sequenceDiagram
 
     Note over p5: Frame complete, wait for next RAF
 ```
-<p align="center"><i>Figure 4: Game Loop Sequence Diagram</i></p>
+<p align="center"><i>Figure 4.2: Game Loop Sequence Diagram</i></p>
 
 Figure 4 above captures how the core game loop functions in our project. The loop begins when p5's draw callback fires, which then causes GameCore.update(dt) to drive each subsystem in a fixed order, ending with render(p) handing the p5 instance to the render system. The ordering of each subsystem matters because several subsystems read state written by earlier ones. For example, MissionSystem checks the player's position after playerSystem has moved them, and the interactionSystem checks door, box, and button states after DoorSystem and RoomSystem have triggered. This rigid approach keeps the game determinisitic and free of inter-system race conditions and makes adding new systems simple. For any new system to be added, we need to only find the right point in the sequence to insert it.
 
@@ -821,7 +827,7 @@ stateDiagram-v2
         boosted move speed
     end note
 ```
-<p align="center"><i>Figure 5: NPC State Machine</i></p>
+<p align="center"><i>Figure 4.3: NPC State Machine</i></p>
 
 The most complex behavior subsystem in our project is the guard AI, which was modelled as a three-state finite-state machine which lives in npcStateMachine.js. Guards start in a PATROL state and raise their alertLevel (0-100) at 34 per second while the player is in their field of view[^2], decaying at 18 per second otherwise. Crossing the chase threshold (20) with the player still in sight triggers CHASE. Once players break line of sight by hiding behind objects, outrunning guards, or using portals, alert level drops. Once alert level hits 10 or less, guards enter a SEARCH state, scanning their surroundings for 2 seconds. 
 
@@ -837,6 +843,12 @@ PATROL can also be interrupted directly into SEARCH in 3 different ways. Players
 During the development process, the guard AI's movement and decision making and the map rendering system stood out as the greatest technical challenges. The development and implementation of each system is described in further detail below.
 
 ## 5.1 Challenge 1: NPC Pursuit AI
+
+<p align="center"><b><em>Table 5.1: Summary of NPC AI Implementation Challenges</em></b></p>
+
+| System | Technical Problem | Final Architecture | Key Techniques Used | Gameplay Impact |
+|---|---|---|---|---|
+| **NPC Pursuit AI** | Guards needed to chase the player through rooms, doors, furniture, corners, and obstacles without becoming stuck or jittery. | Layered AI system combining behaviour states, global pathfinding, local steering, door handling, and recovery logic. | FSM states: `PATROL`, `SEARCH`, `CHASE`; A* pathfinding; waypoint skipping; 12-direction context steering; box-swept traversal checks; anti-stuck recovery; smooth-facing logic. | Guards became more reactive, threatening, and believable, supporting the stealth gameplay loop. |
 
 Key to developing the kind of game we wanted was to build an NPC movement system that would reliably chase the player through multi-room environments and respond to player behavior[^4]. This meant balancing four competing goals at the same time:
 
@@ -876,6 +888,12 @@ To avoid jitter, we added three supporting mechanisms:
 
 ## 5.2 Challenge 2: Map Rendering
 
+<p align="center"><b><em>Table 5.2: Summary of Map Rendering Implementation Challenges</em></b></p>
+
+| System | Technical Problem | Final Architecture | Key Techniques Used | Gameplay Impact |
+|---|---|---|---|---|
+| **Map Rendering** | The map had to support visuals, collision, lighting, rooms, doors, chests, NPC patrols, player navigation, and exploration without layer conflicts. | Layered rendering and world-composition pipeline built around Tiled data and p5.js camera transforms. | Tiled GID resolution; tileset lookup; large-asset alignment; ordered tile rendering; lighting overlays; unexplored-room overlays; viewport culling; `push()` / `pop()` transform isolation. | The map became a shared gameplay structure rather than just a background, enabling collision, lighting, stealth, interaction, and efficient rendering. |
+
 Our second challenge was map rendering. In the development of our map rendering system, the core focus was to build independent layers that do not interfere with each other. Initially, we planned to place all content on a single layer just like assembling a jigsaw puzzle, adopting an extreme object-oriented design philosophy. However, during practical trials, we discovered that this approach violates the principle of low coupling and leads to excessive interdependency among elements.
 
 Therefore, we designed a layered rendering architecture, in which each layer is rendered independently, including the map layer, lighting layer, character layer, interactive animation effect layer and so on. The transformation states are managed through the push() and pop() functions in p5.js. We originally adopted native Canvas for development, but later realized that p5.js was required for this project. After consulting our instructors, we abandoned the original plan and migrated the entire project to p5.js.
@@ -907,7 +925,7 @@ We chose a think-aloud usability study as our qualitative method early on in the
 <p align="center">
   <img src="devlog/images/think-aloud.jpg" alt="think aloud mindmap" width="900" height="800">
 </p>
-<p align="center"><i>Figure 6: Think Aloud Summary</i></p>
+<p align="center"><i>Figure 6.1: Think Aloud Summary</i></p>
 
 Several recurring issues arose across participants that warranted reconsideration. In response we made the following changes to the build:
 
@@ -934,6 +952,8 @@ Procedure：Ten participants were split into two groups of five to control for l
 
 <div align="center">
 
+<p align="center"><b><em>Table 6.1: SUS Data Overview</em></b></p>
+
 | **Participant** | **SUS L1** | **SUS L2** | **Difference** |
 | --------------- | ---------- | ---------- | -------------- |
 | P1              | 67.5       | 72.5       | 5.0            |
@@ -950,14 +970,12 @@ Procedure：Ten participants were split into two groups of five to control for l
 
 </div>
 
-<p align="center"><i>Figure 7: SUS Data Overview</i></p>
-
 **Graphical Representation**
 
 <p align="center">
   <img src="devlog/images/sus-scores-with-differences.png" alt="SUS Scores with Differences" width="900" height="800">
 </p>
-<p align="center"><i>Figure 8: SUS Scores with Differences</i></p>
+<p align="center"><i>Figure 6.2: SUS Scores with Differences</i></p>
 
 **Statistical Analysis**
 
@@ -993,6 +1011,8 @@ Alongside the user studies above, we carried out a structured testing programme 
 
 ### Testing Summary
 
+<p align="center"><b><em>Table 6.2: Testing Summary</em></b></p>
+
 | Approach | Technique | Cases | Result |
 |---|---|---:|---|
 | Black-box | General functional testing | 51 | Passed |
@@ -1002,6 +1022,8 @@ Alongside the user studies above, we carried out a structured testing programme 
 | **Overall** |  | **78** | **Passed** |
 
 ### Requirement Verification Traceability
+
+<p align="center"><b><em>Table 6.3: Requirement Verification Traceability</em></b></p>
 
 | Requirement / Expected Behaviour | Verification Method | Related Tests | Result |
 |---|---|---|---|
@@ -1018,6 +1040,8 @@ Alongside the user studies above, we carried out a structured testing programme 
 | Selected internal logic should behave correctly under direct verification | White-box testing | WT01, WT02, WT05, WT06, WT07, WT10 | Passed |
 
 ### Defects Found During Testing
+
+<p align="center"><b><em>Table 6.4: Summary of Defects Found</em></b></p>
 
 | Bug ID | Description | Status |
 |---|---|---|
@@ -1068,7 +1092,7 @@ After speaking with our instructors, we moved development and all of our documen
 
 We now acknowledge that it would have been easier to start that way, but experiencing the problems first-hand gave everyone an understanding of why git-based workflows exist. That lesson is likely to stay with us more clearly than if we had followed the correct process from day one.
 
-
+<p align="center"><b><em>Table 7.1: Weekly Progress</em></b></p>
 
 | Week       | Description                                                                                                                                                                                                                 |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1084,7 +1108,6 @@ We now acknowledge that it would have been easier to start that way, but experie
 | Week 10–12 | Progress slowed due to spring break and celebration week, but work still continued on screen creation, endings development, portal implementation, animation, and report support.                                           |
 | Week 13    | The team focused on final feature completion, including the notes feature, on-screen notifications, tutorial creation, testing completion, bug fixing, and music and sound effects.                                         |
 | Week 14    | Final work centred on report writing, remaining fixes and improvements, video production, and overall project wrap-up.                                                                                                      |
-<p align="center">Weekly Progress</p>
 
 ## 7.6 Reflection
 
