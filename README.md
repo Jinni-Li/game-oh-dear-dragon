@@ -1238,12 +1238,17 @@ All AI outputs were reviewed by our team. Suggestions, generated visuals, and re
 
 # References
 
-[^1]: Challacade (2021) Easy enemy AI using collider queries! [Video]. YouTube. Available at: https://youtube.com/shorts/706pUVt3xwg?si=UmY9aQOTHUbNX9AB (Accessed: 25 April 2026).
-[^2]: GDQuest (2021) The Cool Trick Game Developers Use to Make Enemy AI See You [Video]. YouTube. Available at: https://youtube.com/shorts/2EL2MVgVrso?si=MMHA8QBVbZqj2Fqc (Accessed: 25 April 2026).
-[^3]: Kukatoo (2024) How I made enemy AI in my fighting game! [Video]. YouTube. Available at: https://youtu.be/72BpLkyYnPw?si=AeXjLm9aeXgHeLR (Accessed: 25 April 2026).
-[^4]: Reynolds, C.W. (1999) Steering behaviors for autonomous characters. In: Game Developers Conference, 1999, pp. 763-782.
-[^5]: SULAIMAN, H. A., et al. (2013) 'Distance computation using axis aligned bounding box (AABB) parallel distribution of dynamic origin point', in 2013 Annual International Conference on Emerging Research Areas and 2013 International Conference on Microelectronics, Communications and Renewable Energy, Kanjirapally, India, pp. 1–6. https://doi.org/10.1109/AICERA-ICMiCR.2013.6575955
-[^6]: Van Toll, W.G., Cook IV, A.F. & Geraerts, R. (2012) A navigation mesh for dynamic environments. *Computer Animation and Virtual Worlds*, 23(6), pp. 535-546.
+[^1]: Challacade (2021) 'Easy enemy AI using collider queries!' [Video]. YouTube. Available at: https://youtube.com/shorts/706pUVt3xwg?si=UmY9aQOTHUbNX9AB (Accessed: 7 February 2026).
+
+[^2]: GDQuest (2021) 'The Cool Trick Game Developers Use to Make Enemy AI See You' [Video]. YouTube. Available at: https://youtube.com/shorts/2EL2MVgVrso?si=MMHA8QBVbZqj2Fqc (Accessed: 13 February 2026).
+
+[^3]: Kukatoo (2024) 'How I made enemy AI in my fighting game!' [Video]. YouTube. Available at: https://youtu.be/72BpLkyYnPw?si=AeXjLm9aeXgHeLR (Accessed: 8 February 2026).
+
+[^4]: Reynolds, C.W. (1999) 'Steering behaviors for autonomous characters', in *Game Developers Conference 1999*, pp. 763–782.
+
+[^5]: Sulaiman, H.A. et al. (2013) 'Distance computation using axis aligned bounding box (AABB) parallel distribution of dynamic origin point', in *2013 Annual International Conference on Emerging Research Areas and 2013 International Conference on Microelectronics, Communications and Renewable Energy*, Kanjirapally, India, pp. 1–6. doi: 10.1109/AICERA-ICMiCR.2013.6575955.
+
+[^6]: Van Toll, W.G., Cook IV, A.F. and Geraerts, R. (2012) 'A navigation mesh for dynamic environments', *Computer Animation and Virtual Worlds*, 23(6), pp. 535–546.
 
  
 
