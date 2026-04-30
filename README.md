@@ -3,7 +3,7 @@
 # Escape: Oh Dear Dragon!
 
 [![Play](https://img.shields.io/badge/🕹️_Play_the_Game-4CAF50?style=for-the-badge)](https://uob-comsm0166.github.io/2026-group-5/index.html)
-[![Video](https://img.shields.io/badge/🎥_Watch_Video-E91E63?style=for-the-badge)]()
+[![Video](https://img.shields.io/badge/🎥_Watch_Video-E91E63?style=for-the-badge)](https://youtu.be/y8zhtt84bO4)
 [![Kanban](https://img.shields.io/badge/📌_Kanban_Board-7C4DFF?style=for-the-badge)](https://github.com/orgs/UoB-COMSM0166/projects/150)
 [![Updates](https://img.shields.io/badge/📅_Weekly_Updates-FF6F00?style=for-the-badge)](https://github.com/UoB-COMSM0166/2026-group-5/tree/main/weekly-updates)
 
