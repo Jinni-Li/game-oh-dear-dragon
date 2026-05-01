@@ -1088,9 +1088,16 @@ GitHub held our codebase and our Kanban board, and after an initial adjustment p
 
 Early in the project, most development happened through live coding sessions with extended voice calls rather than through the repository. This strategy had some advantages, like quick feedback, team-based problem solving, and strengthening team cohesion, but its limitations became clear as our codebase grew. Contributions were hard to attribute to each individual and integration happened in large bulk commits instead of small, reviewable increments. The repo's history did not reflect the pace at which the work was actually being done, which reduced the value of GitHub as a development tool. 
 
-After speaking with our instructors, we moved development and all of our documentation to our repository. This explains why parts of the repo’s history show work arriving in larger batches, as we were migrating from our earlier approach. Over time, smaller and more granular commits became the norm as we adapted to a more conventional workflow. 
+<p align="center">
+  <img src="devlog/images/commit.png" alt="GitHub Line Count Fix" width="320">
+</p>
+<p align="center"><i>Addressing the Line-Count Issue</i></p>
 
-We now acknowledge that it would have been easier to start that way, but experiencing the problems first-hand gave everyone an understanding of why git-based workflows exist. That lesson is likely to stay with us more clearly than if we had followed the correct process from day one.
+After speaking with our instructors, we moved development and documentation into the repository more consistently. This explains why parts of the repo history show work arriving in larger batches, as we were migrating from our earlier approach. We also encountered a GitHub line-count issue where small edits appeared as extremely large changes. We figure out it was due to Windows/Linux line-ending differences and binary assets being interpreted as text files. To fix this, we added a `.gitattributes` file to standardise LF line endings and mark common asset types as binary. This made later commits easier to review and prevented misleading line-change statistics.
+
+We also refactored major parts of the codebase into ES6 classes from a more functional approach. This helped separate responsibilities between systems such as player logic, NPC behaviour, rendering, audio, input, inventory, and screen management. These changes also influenced how we approached later technical challenges. Instead of building single large scripts, we organised major systems into clear layers, such as the layered NPC pursuit AI and the layered map rendering pipeline.
+
+We now acknowledge that it would have been easier to start that way, but experiencing the problems first-hand gave us an understanding of why git-based workflows, clean commit histories and asset organisation, and modular code structures are important. That lesson is likely to stay with us more clearly than if we had followed the correct process from day one.
 
 <p align="center"><b><em>Table 7.1: Weekly Progress</em></b></p>
 
