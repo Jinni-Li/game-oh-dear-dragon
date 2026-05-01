@@ -1054,11 +1054,11 @@ In total, **78 test cases** were executed and **78 passed**. These results suppo
 
 ## 7.1 Team Roles
 
-Our team divided responsibilities early on based on each member's prior interests and experience. The full breakdown is shown in _Table 1_ above. Defining roles early gave us a starting point and reduced confusion over ownership. In practice, responsibilities still overlapped so our workflow was more collaborative than the role list suggests.
+Our team divided responsibilities early based on prior interests and experience, as shown in _Table 1_, though responsibilities often overlapped.
 
 ## 7.2 Methodology
 
-We initially planned to follow a Scrum-style agile methodology with fixed-length sprints, sprint backlogs, standups, reviews, and retrospectives. In practice, we ran two sprints of uneven length (two weeks and three weeks) before the formal process fell away. Most of the team had not worked in an agile/Scrum context before, and with the pressure of the project timeline, we moved toward lighter-weight coordination that the whole team could participate in and feel comfortable with. 
+We initially planned to follow a Scrum-style agile methodology, but after two uneven sprints the formal process became difficult to maintain. Most of the team had not worked in an agile/Scrum context before, and with the pressure of the project timeline, we moved toward lighter-weight coordination that the whole team could participate in and feel comfortable with. 
 
 User stories were translated into issues and placed on our Kanban board during the first sprint, prioritizing tasks that other systems depended on. Unfinished tasks from sprint one and additional user stories from our sprint backlog were added to sprint two. Neither sprint was executed strictly, and as a team we were more successful at tracking what needed to be done rather than enforcing when it had to be done. 
 
@@ -1118,20 +1118,7 @@ We now acknowledge that it would have been easier to start that way, but experie
 
 ## 7.6 Reflection
 
-The process side of the project is where we learned the most. As a team we celebrate: 
-
-- Our consistent meeting schedule
-- Strong group communication
-- Clear shared documentation
-- Successfully shipping a complete game
-
-At the same time, we recognise several weaknesses in how we worked:
-
-- Our adoption of agile was limited and inconsistent
-- Our contributing guide and sprint boards were set up but not followed rigorously
-- Our GitHub workflow developed gradually instead of being established properly from the start
-
-These issues did not prevent us from completing the project, but they made parts of the process less efficient than they should have been. The most important outcome is that we adapted as the project progressed and now have a clearer understanding of how we would organise a similar project in future. In particular, we would establish a repository-centred workflow earlier, keep sprint structures simpler and more realistic, and maintain the strong communication habits that worked well for us throughout. 
+Overall, the process side of the project taught us the importance of matching project management methods to the team’s experience. Our communication, meeting schedule, and documentation habits were strong, but our agile structure, sprint tracking, and GitHub workflow developed more gradually than intended. In future projects, we would start with a repository-centred workflow, simplify sprint planning, and keep the communication habits that worked well.
 
 # 8. Sustainability, Ethics, and Accessibility
 
