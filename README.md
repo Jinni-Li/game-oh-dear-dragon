@@ -920,7 +920,7 @@ We eventually sorted out our approach and finalized the correct sequential rende
 </p>
 <p align="center"><i>An early prototype used during the think-aloud study</i></p>
 
-We chose a think-aloud usability study as our qualitative method early on in the development process, primarily because our game's difficulty depends on its controls and stealth mechanics. This approach allowed us to see if the player encountered any friction in the moment, rather than relying on them remembering and articulating their difficulties in a post-session questionnaire. Participants were asked to narrate their thoughts while playing an early build of the game, and facilitators from our team recorded observations without intervening. We grouped the resulting observations into four themes, shown in _Figure 6_ below.
+We used a think-aloud usability study because the game’s difficulty depends on its controls and stealth mechanics. Participants narrated their thoughts while playing an early build as facilitators recorded observations. We grouped the resulting observations into four themes, shown in _Figure 6_ below.
 
 <p align="center">
   <img src="devlog/images/think-aloud.jpg" alt="think aloud mindmap" width="900" height="800">
@@ -929,12 +929,12 @@ We chose a think-aloud usability study as our qualitative method early on in the
 
 Several recurring issues arose across participants that warranted reconsideration. In response we made the following changes to the build:
 
-- Doors were widened and their interaction was simplified
-- Sprinting speed was lowered to increase difficulty
-- Additional cover was provided so that breaking line of sight became a viable recovery tactic
-- Controls were reworked to include arrow keys as well as WASD, and the HUD was reworked to more prominently display key bindings
-- A tutorial screen was added to introduce mechanics
-- A bug where players could close a door while standing in the frame was fixed
+- Widened doors and simplified interaction
+- Lowered sprinting speed
+- Added additional objects for cover
+- Added support for arrow keys
+- Added a tutorial screen
+- Fixed a door-frame closing bug
 
 <p align="center">
   <img src="devlog/images/tutorial.png" alt="Tutorial Screen" width="640">
@@ -943,7 +943,7 @@ Several recurring issues arose across participants that warranted reconsideratio
 
 ## 6.2 Quantitative 
 
-We employed the System Usability Scale (SUS) as our quantitative method, a standardized 10-item Likert instrument that gives a single 0-100 usability score. SUS was a good fit because it is short enough to complete after a play session, it benchmarks against an established industry average of 68, and it does not require prior gaming experience.
+We used the System Usability Scale (SUS), a standard 10-item Likert questionnaire that produces a 0–100 usability score and benchmarks against an accepted average of 68.
 
 Procedure：Ten participants were split into two groups of five to control for learning effects.
 - Group A (P1–P5): played Level 1 (Easy) then Level 2 (Medium)
